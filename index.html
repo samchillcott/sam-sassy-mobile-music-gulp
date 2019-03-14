@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sassy-mobile-music</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <nav id="playing-nav">
+        <div class="left-part">
+            <i class="fas fa-arrow-right"></i> <span>Now Playing</span>
+        </div>
+        <div class="right-part">
+            <i class="fas fa-sliders-h"></i>
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+    </nav>
+
+    <section id="album-art">
+        <img src="images/album-art1.jpg" alt="album-art" id="album-cover">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+    </section>
+
+    <div id="track-times">
+        <span id="current-time">0:00</span>
+        <span id="track-time">0:00</span>
+    </div>
+
+    <section id="track-titles">
+        <h3 id="current-title">Come Get Some</h3>
+        <p id="current-album-band">Final draft - Tranquil Collective</p>
+    </section>
+
+    <section id="track-control">
+        <i class="fas fa-random" id="random"></i>
+        <i class="fas fa-backward" id="backward"></i>
+        <i class="fas fa-play" id="play"></i>
+        <i class="fas fa-forward" id="forward"></i>
+        <i class="fas fa-redo-alt" id="repeat"></i>
+    </section>
+
+    <section id="playlist">
+        <nav class="playlist-toggle-nav" id="playlist-toggle-nav"> <span>Playlist</span> </nav>
+        <nav class="playlist-toggle-desktop" id="playlist-toggle-desktop"> 
+            <div class="playlist-toggle-btn">
+                <i class="fas fa-angle-right" id="toggle-icon"></i> 
+            </div> 
+        </nav>
+
+
+        <div id="tracklist"></div>
+        <div id="tracklist-desktop"></div>
+
+    </section>
+
+
+    <script src="scripts/Player.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
