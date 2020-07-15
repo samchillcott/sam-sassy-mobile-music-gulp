@@ -1,312 +1,325 @@
 $colors: (
-    primary-bg: #2D303F,
-    primary-fill: #FF504D,
-    primary-font: #EDECFC,
-    darker-font: lighten(#2D303F, 35%),
-    secondary-bg: #283138,
-    shadow: #1C1E28,
-    light-shadow: lighten(#1C1E28, 20%),
-    gradient-bg: linear-gradient(to right top, #2d303f, #333543, #383948, #3e3e4c, #444351)
+	primary-bg: #2d303f,
+	primary-fill: #ff504d,
+	primary-font: #edecfc,
+	darker-font: lighten(#2d303f, 35%),
+	secondary-bg: #283138,
+	shadow: #1c1e28,
+	light-shadow: lighten(#1c1e28, 20%),
+	gradient-bg:
+		linear-gradient(to right top, #2d303f, #333543, #383948, #3e3e4c, #444351),
 );
 
 $paddings: (
-    m-updown-s-side: 10px 5px,
-    m-plus-full: 15px,
-    m-updown: 1em 0,
-    s-updown: 0.5em 0,
-    s-plus-updown: 0.7em 0
+	m-updown-s-side: 10px 5px,
+	m-plus-full: 15px,
+	m-updown: 1em 0,
+	s-updown: 0.5em 0,
+	s-plus-updown: 0.7em 0,
 );
 
 $margins: (
-    s-right: 0 5px 0 0,
-    m-right: 0 10px 0 0,
-    vvl-right-margin: 0 20px 0 0,
-    m-side: 0 1em,
-    m-plus-side: 0 1.5em
+	s-right: 0 5px 0 0,
+	m-right: 0 10px 0 0,
+	vvl-right-margin: 0 20px 0 0,
+	m-side: 0 1em,
+	m-plus-side: 0 1.5em,
 );
 
 @function color($color) {
-    @return map-get($colors, $color)
-};
+	@return map-get($colors, $color);
+}
 
 @function padding($padding) {
-    @return map-get($paddings, $padding)
-};
+	@return map-get($paddings, $padding);
+}
 
 @function margin($margin) {
-    @return map-get($margins, $margin)
-};
+	@return map-get($margins, $margin);
+}
 
 $smaller-font: 0.7rem;
 $desktop: 840px;
 
 @mixin desktop {
-    @media (min-width: #{$desktop}) {
-        @content
-    }
+	@media (min-width: #{$desktop}) {
+		@content;
+	}
 }
 
 @mixin tracklist-track {
-    .track {
-        display: flex;
-        flex-direction: column;
-        padding: padding(s-plus-updown);
-        box-shadow: 0 3px 4px -3px color(light-shadow);
-        
-        .upper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
+	.track {
+		display: flex;
+		flex-direction: column;
+		padding: padding(s-plus-updown);
+		box-shadow: 0 3px 4px -3px color(light-shadow);
 
-            h4 {
-                transition: 0.2s;
-                &:hover {
-                    color: color(primary-fill); 
-                }
-            }
+		.upper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
 
-            .track-name {
-                margin: 0;
-            }
-        }
+			h4 {
+				transition: 0.2s;
+				&:hover {
+					color: color(primary-fill);
+				}
+			}
 
-        .below {
-            display: flex;
-            
-            .album-and-band {
-                margin: 0;
-                font-size: $smaller-font;
-                color: color(darker-font); 
-            }
-        }
-    }
+			.track-name {
+				margin: 0;
+			}
+		}
+
+		.below {
+			display: flex;
+
+			.album-and-band {
+				margin: 0;
+				font-size: $smaller-font;
+				color: color(darker-font);
+			}
+		}
+	}
 }
 
-body, html {
-    height: 100%; 
-    // background-color: color(primary-bg); 
-    background-image: color(gradient-bg);
-    font-family: 'Montserrat', sans-serif;
-    color: color(primary-font);
+body,
+html {
+	height: 100%;
+	// background-color: color(primary-bg);
+	background-image: color(gradient-bg);
+	font-family: "Montserrat", sans-serif;
+	color: color(primary-font);
 }
 
 body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 
 nav#playing-nav {
-    display: flex;
-    padding: padding(m-plus-full);
+	display: flex;
+	padding: padding(m-plus-full);
 
-    .left-part {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex: 5;
-        
+	.left-part {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex: 5;
 
-        i {
-            color: color(primary-fill);
-            margin: margin(m-right);
-            transform: rotate(45deg);
-        }
+		i {
+			color: color(primary-fill);
+			margin: margin(m-right);
+			transform: rotate(45deg);
+		}
 
-        span {
-            font-size: 1.1em;
-        }
-    }
+		span {
+			font-size: 1.1em;
+		}
+	}
 
-    .right-part {
-        display: flex;
-        justify-content: space-between;
-        flex: 1;
-        font-size: 1.1em;
+	.right-part {
+		display: flex;
+		justify-content: space-between;
+		flex: 1;
+		font-size: 1.1em;
 
-        .fa-sliders-h {
-            color: color(primary-fill);
-        }
-    }
+		.fa-sliders-h {
+			color: color(primary-fill);
+		}
+	}
 
-    @include desktop {
-        display: none;
-    }
+	@include desktop {
+		display: none;
+	}
 }
 
 section#album-art {
-    width: 80%;
-    height: 30%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
-    margin-top: 10%;
-    
-    img {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-    }
+	width: 80%;
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: 0 auto;
+	margin-top: 10%;
 
-    .progress-bar {
-        width: 100%;
-        height: 10px;
-        .progress {
-            width: 0%;
-            background: color(primary-fill);
-            height: 100%;
-          }
-    }
+	img {
+		width: 100%;
+		height: 100%;
+		margin: auto;
+	}
 
-    @include desktop {
-        width: 40%;
-        height: 68%;
-        margin-top: 2%;
-        img {
-            min-height: 100%;
-            height: auto;
-            width: 100%;
-        }
+	.progress-bar {
+		width: 100%;
+		height: 10px;
+		.progress {
+			width: 0%;
+			background: color(primary-fill);
+			height: 100%;
+		}
+	}
 
-        
-    }
+	@include desktop {
+		width: 40%;
+		height: 68%;
+		margin-top: 2%;
+		img {
+			min-height: 100%;
+			height: auto;
+			width: 100%;
+		}
+	}
 }
 
 #track-times {
-    width: 80%;
-    margin: 1em auto;
-    display: flex;
-    justify-content: space-between;
-    opacity: 0.1;
-    @include desktop {
-        width: 40%;
-        margin: 2em auto 0 auto;
-    }
+	width: 80%;
+	margin: 1em auto;
+	display: flex;
+	justify-content: space-between;
+	opacity: 0.1;
+	@include desktop {
+		width: 40%;
+		margin: 2em auto 0 auto;
+	}
 }
 
 #track-titles {
-    width: 80%;
-    margin: 0 auto 2.5em auto;
-    text-align: center;
-    
-    p {
-        color: color(primary-fill);
-    }
+	width: 80%;
+	margin: 0 auto 2.5em auto;
+	text-align: center;
 
-    @include desktop {
-        margin: 0 auto;
+	p {
+		color: color(primary-fill);
+	}
 
-        h3 {
-            margin: 0.5em 0;
-        }
-        
-        p {
-            margin: 0.5em 0;
-        }
-    }
+	@include desktop {
+		margin: 0 auto;
+
+		h3 {
+			margin: 0.5em 0;
+		}
+
+		p {
+			margin: 0.5em 0;
+		}
+	}
 }
 
 section#track-control {
-    padding: padding(m-plus-full);
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-top: 0;
-    
-    i {
-        margin: margin(m-plus-side);
-        transition: 0.2s;
-        &:hover {
-            color: color(primary-fill);
-        }
-    }
+	padding: padding(m-plus-full);
+	display: flex;
+	justify-content: center;
+	font-size: 1.2rem;
+	margin-top: 0;
 
-    .selected {
-        color: color(primary-fill);
-    }
+	i {
+		margin: margin(m-plus-side);
+		transition: 0.2s;
+		&:hover {
+			color: color(primary-fill);
+		}
+	}
 
+	.selected {
+		color: color(primary-fill);
+	}
 }
 
 section#playlist {
-    background: color(secondary-bg);
-    width: calc(100% - 30px);
-    padding: padding(m-plus-full);
-    position: absolute;
-    bottom: 0;
-    
-    
-    box-shadow: 0 -2px 3px #1C1E28;
-    .playlist-toggle-nav {
-        display: flex;
-        justify-content: center;
-        text-align: center; 
-        width: 100%;
-        padding: padding(s-plus-updown);
-    }
+	background: color(secondary-bg);
+	width: calc(100% - 30px);
+	padding: padding(m-plus-full);
+	position: absolute;
+	bottom: 0;
 
-    .playlist-toggle-desktop {
-        display: none;
-    }
+	box-shadow: 0 -2px 3px #1c1e28;
+	.playlist-toggle-nav {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+		padding: padding(s-plus-updown);
+	}
 
-    #tracklist {
-        @include tracklist-track()
-    }
+	.playlist-toggle-desktop {
+		display: none;
+	}
 
-    #tracklist-desktop {
-        display: none;
-    }
-    @include desktop {
-        left: 0;
-        top: 0;
-        width: 4%;
-        z-index: 1030;
-        box-shadow: 2px 0 3px #1C1E28;
+	#tracklist {
+		@include tracklist-track();
+	}
 
-        .playlist-toggle-nav {
-            display: none;
-        }
+	#tracklist-desktop {
+		display: none;
+	}
+	@include desktop {
+		left: 0;
+		top: 0;
+		width: 4%;
+		z-index: 1030;
+		box-shadow: 2px 0 3px #1c1e28;
 
-        .playlist-toggle-desktop {
-            display: flex;
-            justify-content: flex-end;
+		.playlist-toggle-nav {
+			display: none;
+		}
 
-            .playlist-toggle-btn {
-                border-radius: 100%;
-                padding: padding(m-full);
-                background: color(gradient-bg);
-                width: 50px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 2px solid color(light-shadow);
-            }
-        }
-        @include tracklist-track()
-    }
+		.playlist-toggle-desktop {
+			display: flex;
+			justify-content: flex-end;
+
+			.playlist-toggle-btn {
+				border-radius: 100%;
+				padding: padding(m-full);
+				background: color(gradient-bg);
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 2px solid color(light-shadow);
+			}
+		}
+		@include tracklist-track();
+	}
 }
 
 // Animations
 
 @keyframes desktop-playlist-open {
-    from {width: 4%;}
-    to {width: 20%;}
+	from {
+		width: 4%;
+	}
+	to {
+		width: 20%;
+	}
 }
 
 @keyframes desktop-playlist-close {
-    from {width: 20%;}
-    to {width: 4%;}
+	from {
+		width: 20%;
+	}
+	to {
+		width: 4%;
+	}
 }
 
 @keyframes mobile-playlist-open {
-    from {top: 100%;}
-    to {top: 0%;}
+	from {
+		top: 100%;
+	}
+	to {
+		top: 0%;
+	}
 }
 
 @keyframes mobile-playlist-close {
-    from {top: 0%;}
-    to {top: 89.2%;}
+	from {
+		top: 0%;
+	}
+	to {
+		top: 89.2%;
+	}
 }
