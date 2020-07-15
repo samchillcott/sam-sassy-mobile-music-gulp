@@ -6,9 +6,9 @@ gulp.task("hello", async function () {
 
 
 gulp.task('first-task', async function() {
-    gulp.src('/public/js/**/*.js')
+    gulp.src('/src/js/**/*.js')
     .pipe(concat())
     .pipe(minify())
-    .pipe(gulp.dest('build'))
+    .pipe(gulp.dest('dist'))
   });
   
