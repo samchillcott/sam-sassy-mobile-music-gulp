@@ -1,18 +1,14 @@
-const { series } = require("gulp");
+const gulp = require("gulp");
 
-// The `clean` function is not exported so it can be considered a private task.
-// It can still be used within the `series()` composition.
-function clean(cb) {
-	// body omitted
-	cb();
-}
+gulp.task("hello", async function () {
+	console.log("Hello Sam");
+});
 
-// The `build` function is exported so it is public and can be run with the `gulp` command.
-// It can also be used within the `series()` composition.
-function build(cb) {
-	// body omitted
-	cb();
-}
 
-exports.build = build;
-exports.default = series(clean, build);
+gulp.task('first-task', async function() {
+    gulp.src('/public/js/**/*.js')
+    .pipe(concat())
+    .pipe(minify())
+    .pipe(gulp.dest('build'))
+  });
+  
