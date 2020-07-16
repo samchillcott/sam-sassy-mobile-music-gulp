@@ -1,9 +1,13 @@
 
 var gulp = require('gulp');
+var sass = require('gulp-sass');
+var cssnano = require('gulp-cssnano');
+
 
 gulp.task('sass', function(){
-  return gulp.src('css/**/*.scss')
+  return gulp.src('src/css/*.scss')
     .pipe(sass()) // Using gulp-sass
+    .pipe(cssnano()) // using css nano
     .pipe(gulp.dest('dist'))
 });
 
