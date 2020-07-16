@@ -3,7 +3,6 @@ const { series, parallel } = require("gulp");
 var sass = require("gulp-sass");
 var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
 var clean = require("gulp-clean");
 
@@ -30,7 +29,5 @@ gulp.task("js", function () {
 gulp.task("copy", async function () {
 	return gulp.src("src/static/**/*", { base: "src" }).pipe(gulp.dest("dist"));
 });
-
-// , { base: './' }
 
 exports.default = series("clean", parallel("sass", "js", "copy"));
