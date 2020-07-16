@@ -1,25 +1,24 @@
+var gulp = require("gulp");
+var sass = require("gulp-sass");
+var cssnano = require("gulp-cssnano");
+var concat = require("gulp-concat");
+var uglify = require("gulp-uglify");
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var cssnano = require('gulp-cssnano');
-var concat = require('gulp-concatenate');
-var uglify = require('gulp-uglify');
-
-
-gulp.task('sass', function(){
-  return gulp.src('src/css/*.scss')
-    .pipe(sass()) // Using gulp-sass
-    .pipe(cssnano()) // using css nano
-    .pipe(gulp.dest('dist'))
+gulp.task("sass", function () {
+	return gulp
+		.src("src/css/*.scss")
+		.pipe(sass()) // Using gulp-sass
+		.pipe(cssnano()) // using css nano
+		.pipe(gulp.dest("dist"));
 });
 
-gulp.task('js', function(){
-  return gulp.src('src/scripts/*.js')
-    .pipe(concat()) // Using gulp-sass
-    .pipe(uglify()) // using css nano
-    .pipe(gulp.dest('dist'))
+gulp.task("js", function () {
+	return gulp
+		.src("src/scripts/*.js")
+		.pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
+		.pipe(uglify()) // using uglify
+		.pipe(gulp.dest("dist"));
 });
-
 
 // // Initialize modules
 // // Importing specific gulp API functions lets us write them below as series() instead of gulp.series()
@@ -61,11 +60,9 @@ gulp.task('js', function(){
 // 	console.log("Hello Sam");
 // });
 
-
 // gulp.task('first-task', async function() {
 //     gulp.src('/src/scripts/**/*.js')
 //     .pipe(concat())
 //     .pipe(minify())
 //     .pipe(gulp.dest('dist'))
 //   });
-  
