@@ -4,6 +4,7 @@ var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
+var runSequence = require("run-sequence");
 
 // gulp.task("clear", function () {
 // 	return gulp
