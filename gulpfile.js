@@ -5,13 +5,12 @@ var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
+var clean = require("gulp-clean");
+
 
 gulp.task("clean", function () {
-	// return gulp
-	// 	.src("src/css/*.scss")
-	// 	.pipe(sass()) // Using gulp-sass
-	// 	.pipe(cssnano()) // using css nano
-	// 	.pipe(gulp.dest("dist"));
+
+		.pipe(clean("dist"));
 });
 
 gulp.task("sass", function () {
