@@ -1,5 +1,5 @@
 var gulp = require("gulp");
-const { series } = require("gulp");
+const { series, parallel } = require("gulp");
 var sass = require("gulp-sass");
 var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
@@ -39,8 +39,8 @@ gulp.task("js", function () {
 // 		.pipe(gulp.dest("dist"));
 // });
 
-gulp.task("default", async function () {
-	gulp.series("js", "sass");
-});
+// gulp.task("default", async function () {
+// 	gulp.series("js", "sass");
+// });
 
-// exports.build = series(clean, parallel(sass, js));
+exports.default = series(parallel("sass", "js"));
