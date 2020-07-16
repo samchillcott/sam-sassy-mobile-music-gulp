@@ -5,6 +5,14 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
 
+// gulp.task("clear", function () {
+// 	return gulp
+// 		.src("src/css/*.scss")
+// 		.pipe(sass()) // Using gulp-sass
+// 		.pipe(cssnano()) // using css nano
+// 		.pipe(gulp.dest("dist"));
+// });
+
 gulp.task("sass", function () {
 	return gulp
 		.src("src/css/*.scss")
@@ -14,13 +22,24 @@ gulp.task("sass", function () {
 });
 
 gulp.task("js", function () {
-	return (
-		gulp
-			.src("src/scripts/*.js")
-			.pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
-			.pipe(terser()) //  uglify
-			.pipe(gulp.dest("dist"))
-	);
+	return gulp
+		.src("src/scripts/*.js")
+		.pipe(concat("all.js")) // Using gulp-concat into 1 new file all.js
+		.pipe(terser()) //  uglify
+		.pipe(gulp.dest("dist"));
+});
+
+// gulp.task("staticMove", function () {
+// 	return gulp
+// 		.src("src/css/*.scss")
+// 		.pipe(sass()) // Using gulp-sass
+// 		.pipe(cssnano()) // using css nano
+// 		.pipe(gulp.dest("dist"));
+// });
+
+gulp.task("default", function (callback) {
+	// runSequence(["clear", "sass", "js", "staticMove"], callback);
+	runSequence(["sass", "js"], callback);
 });
 
 // // Initialize modules
