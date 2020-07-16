@@ -3,6 +3,7 @@ var sass = require("gulp-sass");
 var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
+var terser = require("gulp-terser");
 
 gulp.task("sass", function () {
 	return gulp
@@ -15,8 +16,8 @@ gulp.task("sass", function () {
 gulp.task("js", function () {
 	return gulp
 		.src("src/scripts/*.js")
-		.pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
-		.pipe(uglify()) // using uglify
+		// .pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
+		.pipe(terser()) //  uglify
 		.pipe(gulp.dest("dist"));
 });
 
