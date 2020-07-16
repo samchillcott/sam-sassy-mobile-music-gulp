@@ -5,7 +5,6 @@ var cssnano = require("gulp-cssnano");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
-var runSequence = require("run-sequence");
 
 gulp.task("clean", function () {
 	// return gulp
@@ -37,10 +36,6 @@ gulp.task("js", function () {
 // 		.pipe(sass()) // Using gulp-sass
 // 		.pipe(cssnano()) // using css nano
 // 		.pipe(gulp.dest("dist"));
-// });
-
-// gulp.task("default", async function () {
-// 	gulp.series("js", "sass");
 // });
 
 exports.default = series(parallel("sass", "js"));
