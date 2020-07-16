@@ -2,12 +2,21 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cssnano = require('gulp-cssnano');
+var concat = require('gulp-concatenate');
+var uglify = require('gulp-uglify');
 
 
 gulp.task('sass', function(){
   return gulp.src('src/css/*.scss')
     .pipe(sass()) // Using gulp-sass
     .pipe(cssnano()) // using css nano
+    .pipe(gulp.dest('dist'))
+});
+
+gulp.task('js', function(){
+  return gulp.src('src/scripts/*.js')
+    .pipe(concat()) // Using gulp-sass
+    .pipe(uglify()) // using css nano
     .pipe(gulp.dest('dist'))
 });
 
