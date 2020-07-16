@@ -27,7 +27,7 @@ gulp.task("js", function () {
 		.pipe(gulp.dest("dist/scripts"));
 });
 
-gulp.task("copy", function () {
+gulp.task("copy", async function () {
 	return gulp.src("src/static/**/*", { base: "src" }).pipe(gulp.dest("dist"));
 });
 
