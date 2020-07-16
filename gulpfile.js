@@ -17,7 +17,7 @@ gulp.task("js", function () {
 	return (
 		gulp
 			.src("src/scripts/*.js")
-			// .pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
+			.pipe(concat('all.js')) // Using gulp-concat into 1 new file all.js
 			.pipe(terser()) //  uglify
 			.pipe(gulp.dest("dist"))
 	);
