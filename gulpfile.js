@@ -28,7 +28,9 @@ gulp.task("js", function () {
 });
 
 gulp.task("copy", async function () {
-	gulp.src("static", {base: '.'}).pipe(gulp.dest("dist"));
+	return gulp.src("src/static/**/*", { base: "src" }).pipe(gulp.dest("dist"));
 });
+
+// , { base: './' }
 
 exports.default = series("clean", parallel("sass", "js", "copy"));
