@@ -17,6 +17,14 @@
 	},
 	"homepage": "https://github.com/jh1992jh/sassy-music-vanillaJS#readme",
 	"devDependencies": {
-		"gulp": "^4.0.2"
-	}
+		"gulp": "^4.0.2",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-cssnano": "^2.1.3",
+		"gulp-sass": "^4.1.0",
+		"gulp-terser": "^1.2.0",
+		"gulp-uglify": "^3.0.2",
+		"terser": "^4.8.0"
+	},
+	"dependencies": {}
 }
