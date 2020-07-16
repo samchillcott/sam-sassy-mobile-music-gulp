@@ -7,10 +7,8 @@ var uglify = require("gulp-uglify");
 var terser = require("gulp-terser");
 var clean = require("gulp-clean");
 
-
 gulp.task("clean", function () {
-
-		.pipe(clean("dist"));
+	return gulp.src("dist", { read: false }).pipe(clean());
 });
 
 gulp.task("sass", function () {
@@ -29,12 +27,8 @@ gulp.task("js", function () {
 		.pipe(gulp.dest("dist"));
 });
 
-// gulp.task("staticMove", function () {
-// 	return gulp
-// 		.src("src/css/*.scss")
-// 		.pipe(sass()) // Using gulp-sass
-// 		.pipe(cssnano()) // using css nano
-// 		.pipe(gulp.dest("dist"));
-// });
+gulp.task("copy", async function () {
+	gulp.src("static", {base: '.'}).pipe(gulp.dest("dist"));
+});
 
-exports.default = series(parallel("sass", "js"));
+exports.default = series("clean", parallel("sass", "js", "copy"));
