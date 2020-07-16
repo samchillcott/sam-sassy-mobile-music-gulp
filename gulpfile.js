@@ -16,7 +16,7 @@ gulp.task("sass", function () {
 		.src("src/css/*.scss")
 		.pipe(sass()) // Using gulp-sass
 		.pipe(cssnano()) // using css nano
-		.pipe(gulp.dest("dist"));
+		.pipe(gulp.dest("dist/css"));
 });
 
 gulp.task("js", function () {
@@ -24,10 +24,10 @@ gulp.task("js", function () {
 		.src("src/scripts/*.js")
 		.pipe(concat("all.js")) // Using gulp-concat into 1 new file all.js
 		.pipe(terser()) //  uglify
-		.pipe(gulp.dest("dist"));
+		.pipe(gulp.dest("dist/scripts"));
 });
 
-gulp.task("copy", async function () {
+gulp.task("copy", function () {
 	return gulp.src("src/static/**/*", { base: "src" }).pipe(gulp.dest("dist"));
 });
 

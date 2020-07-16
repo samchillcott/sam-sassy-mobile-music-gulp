@@ -1,13 +1,13 @@
-const albumArt1 = "src/images/album-art1.jpg";
-const albumArt2 = "src/images/album-art2.jpg";
-const albumArt3 = "src/images/album-art3.jpg";
-const albumArt4 = "src/images/album-art4.jpg";
-const albumArt5 = "src/images/album-art5.jpg";
-const albumArt6 = "src/images/album-art6.jpg";
-const albumArt7 = "src/images/album-art7.jpg";
-const albumArt8 = "src/images/album-art8.jpg";
-const albumArt9 = "src/images/album-art9.jpg";
-const albumArt10 = "src/images/album-art10.jpg";
+const albumArt1 = "src/static/images/album-art1.jpg";
+const albumArt2 = "src/static/images/album-art2.jpg";
+const albumArt3 = "src/static/images/album-art3.jpg";
+const albumArt4 = "src/static/images/album-art4.jpg";
+const albumArt5 = "src/static/images/album-art5.jpg";
+const albumArt6 = "src/static/images/album-art6.jpg";
+const albumArt7 = "src/static/images/album-art7.jpg";
+const albumArt8 = "src/static/images/album-art8.jpg";
+const albumArt9 = "src/static/images/album-art9.jpg";
+const albumArt10 = "src/static/images/album-art10.jpg";
 
 // for generating a random id
 const randId = () => {
@@ -25,7 +25,7 @@ const albums = [
 		albumCover: albumArt1,
 		trackTimeMins: 3,
 		trackTimeSeconds: 20,
-		src: "tracks/come_get_some.mp3",
+		src: "src/static/tracks/come_get_some.mp3",
 		id: randId(),
 	},
 	{
